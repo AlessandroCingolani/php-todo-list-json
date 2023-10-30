@@ -3,7 +3,8 @@ const {createApp}= Vue;
 createApp({
   data(){
     return{
-      title:'Todo List'
+      title:'Todo List',
+      list:[]
     }
   },
   methods:{
@@ -11,6 +12,7 @@ createApp({
       axios.get('server.php')
       .then(result =>{
         console.log(result.data);
+        this.list = result.data;
       })
     }
   },
