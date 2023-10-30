@@ -25,7 +25,6 @@ createApp({
       .then(result =>{
         this.list = result.data;
         this.newTask = ''
-        console.log('ADD');
       })
 
     }
