@@ -39,7 +39,18 @@ createApp({
         this.list = result.data;
       })
 
+    },
+
+    taskToggle(index){
+      const data = new FormData();
+      data.append('toggleSpan',index);
+
+      axios.post(this.dataUrl,data)
+      .then(result =>{
+        this.list = result.data;
+      })
     }
+
   },
   mounted(){
     this.getTask();
