@@ -3,9 +3,13 @@ body {
   background-color: rgb(70, 169, 175);
 }
 
-span {
+ul li span {
   color: blue;
   font-weight: 600;
+}
+
+ul li span:hover {
+  cursor: pointer;
 }
 
 h1 {
