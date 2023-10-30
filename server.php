@@ -6,7 +6,11 @@ $task = json_decode($json_string);
 
 // ADD
 if(isset($_POST['todoItem']) && !empty($_POST['todoItem'])){
-  $newTask = $_POST['todoItem'];
+  $posted_task =$_POST['todoItem'];
+  $newTask = [
+    'text' => "$posted_task",
+    'doneTask' => 'false'
+  ];
   $task[] = $newTask;
   file_put_contents('todo-list.json', json_encode($task,true));
 }
