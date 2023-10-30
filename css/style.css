@@ -1,5 +1,17 @@
 body {
-  background-color: greenyellow;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(70, 169, 175);
 }
 
+h1 {
+  color: white;
+}
+
+i {
+  cursor: pointer;
+}
+
+i:hover {
+  color: red;
+}
 
