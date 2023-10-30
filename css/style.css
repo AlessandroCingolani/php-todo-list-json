@@ -3,6 +3,8 @@ body {
   background-color: rgb(70, 169, 175);
 }
 
+
+
 h1 {
   color: white;
 }
@@ -13,5 +15,9 @@ i {
 
 i:hover {
   color: red;
+}
+
+.done {
+  text-decoration: line-through;
 }
 
