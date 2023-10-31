@@ -19,10 +19,6 @@ if(isset($_POST['delIndex'])){
   $delTask = $_POST['delIndex'];
   array_splice($task,$delTask,1);
   file_put_contents('todo-list.json', json_encode($task,true));
-  // if($task[$delTask]["doneTask"]){
-  // }else {
-   
-  // }
 }
 
 // TOGGLE DONETASK
