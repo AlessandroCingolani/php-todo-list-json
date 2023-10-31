@@ -20,6 +20,7 @@ createApp({
     addTask(){
       const data = new FormData();
       data.append('todoItem',this.newTask);
+      data.append("doneTask", false);
 
       axios.post(this.dataUrl,data)
       .then(result =>{
