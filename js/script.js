@@ -6,7 +6,9 @@ createApp({
       dataUrl:'server.php',
       title:'Todo List',
       list:[],
-      newTask:''
+      newTask:'',
+      isDeletable : true, 
+      errMessage :'Completa il task prima di eliminarlo!'
     }
   },
   methods:{
@@ -31,13 +33,19 @@ createApp({
 
     removeTask(index){
       console.log(index);
-      const data = new FormData();
-      data.append('delIndex',index);
-
-      axios.post(this.dataUrl,data)
-      .then(result =>{
-        this.list = result.data;
-      })
+      this.intexToDel = index;
+      if(this.list[this.intexToDel].doneTask){
+        this.isDeletable = true;
+        const data = new FormData();
+        data.append('delIndex',index);
+  
+        axios.post(this.dataUrl,data)
+        .then(result =>{
+          this.list = result.data;
+        })
+      }else{
+        this.isDeletable = false;
+      }
 
     },
 
