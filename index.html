@@ -21,8 +21,8 @@
 
 
   <div id="app" class="container my-5">
-    <h1 class="text-center">{{ title }}</h1>
-
+    <h1 class="text-center mb-3">{{ title }}</h1>
+    <h3 v-if="!isDeletable" class="text-center text-danger">{{ errMessage }}</h3>
     <div class="container-fluid bg-white p-3">
       <ul class="list-group">
         <li 
