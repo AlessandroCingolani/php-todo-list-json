@@ -5,11 +5,12 @@ $task = json_decode($json_string,true);
 
 // ADD
 if(isset($_POST['todoItem']) && !empty($_POST['todoItem'])){
-  $newTask = $_POST['todoItem'];
-  $task[] = array(
-    "text" => $_POST["todoItem"],
-    "doneTask" => boolval($_POST["doneTask"])
-  );
+  $posted_task =$_POST['todoItem'];
+  $newTask = [
+    'text' => "$posted_task",
+    'doneTask' => false
+  ];
+  $task[] = $newTask;
   file_put_contents('todo-list.json', json_encode($task,true));
 }
 
@@ -18,6 +19,10 @@ if(isset($_POST['delIndex'])){
   $delTask = $_POST['delIndex'];
   array_splice($task,$delTask,1);
   file_put_contents('todo-list.json', json_encode($task,true));
+  // if($task[$delTask]["doneTask"]){
+  // }else {
+   
+  // }
 }
 
 // TOGGLE DONETASK
