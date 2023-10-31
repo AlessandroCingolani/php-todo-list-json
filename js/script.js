@@ -20,6 +20,7 @@ createApp({
       })
     },
     addTask(){
+      this.isDeletable = true;
       const data = new FormData();
       data.append('todoItem',this.newTask);
 
