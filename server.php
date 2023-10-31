@@ -1,31 +1,23 @@
 <?php
-
-$alertMessage = "Do task to cancel it";
-
 $json_string = file_get_contents('todo-list.json');
 
 $task = json_decode($json_string,true);
 
 // ADD
 if(isset($_POST['todoItem']) && !empty($_POST['todoItem'])){
-  $posted_task =$_POST['todoItem'];
-  $newTask = [
-    'text' => "$posted_task",
-    'doneTask' => false
-  ];
-  $task[] = $newTask;
+  $newTask = $_POST['todoItem'];
+  $task[] = array(
+    "text" => $_POST["todoItem"],
+    "doneTask" => boolval($_POST["doneTask"])
+  );
   file_put_contents('todo-list.json', json_encode($task,true));
 }
 
 // DELETE 
 if(isset($_POST['delIndex'])){
   $delTask = $_POST['delIndex'];
-  if($task[$delTask]["doneTask"]){
-    array_splice($task,$delTask,1);
-    file_put_contents('todo-list.json', json_encode($task,true));
-  }else {
-    
-  }
+  array_splice($task,$delTask,1);
+  file_put_contents('todo-list.json', json_encode($task,true));
 }
 
 // TOGGLE DONETASK
@@ -41,3 +33,5 @@ header('Content-Type: application/json');
 $taskString = json_encode($task,true);
 
 echo $taskString;
+
+
