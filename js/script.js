@@ -8,7 +8,7 @@ createApp({
       list:[],
       newTask:'',
       isDeletable : true, 
-      errMessage :'Completa il task prima di eliminarlo!'
+      errMessage :'Completa il task per eliminarlo!'
     }
   },
   methods:{
